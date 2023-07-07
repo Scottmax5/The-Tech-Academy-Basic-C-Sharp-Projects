@@ -16,51 +16,38 @@ namespace BranchAssignment
 
             //Prompt for user to type in number, will error and return message if package is oversized.
             Console.WriteLine("What is your package weight?");
-                int packageWeight = Convert.ToInt32(Console.ReadLine());
-                if (packageWeight > 50)
-                {
-                    Console.WriteLine("Package too heavy to be shipped via Package Express. Have a good day.");
-                }
-                else
-                //Prompt for user to type in number, will error and return message if package is oversized.
-                Console.WriteLine("What is the package width?");
-                    int packageWidth = Convert.ToInt32(Console.ReadLine());
-                    if (packageWidth > 50)
-                    {
-                        Console.WriteLine("Package too wide to be shipped via Package Express. Have a good day.");
-                    }
-                    else
-                    //Prompt for user to type in number, will error and return message if package is oversized.
-                    Console.WriteLine("what is the package height?");
-                        int packageHeight = Convert.ToInt32(Console.ReadLine());
-                        if (packageHeight > 50)
-                        {
-                            Console.WriteLine("Package too tall to be shipped via Package Express. Have a good day.");
-                        }
-                    else
-                    //Prompt for user to type in number, will error and return message if package is oversized.
-                    Console.WriteLine("What is the package length?");
-                        int packageLength = Convert.ToInt32(Console.ReadLine());
-                        if (packageLength > 50)
-                        {
-                            Console.WriteLine("Package too long to be shipped via Package Express. Have a good day.");
-                        }
-
-            int totalDimensions = packageWidth + packageHeight + packageLength;
-
-            if (totalDimensions > 50)
+            int packageWeight = Convert.ToInt32(Console.ReadLine());
+            if (packageWeight > 50)
             {
-                Console.WriteLine("Package dimensions exceed the limit. Have a good day.");
+                Console.WriteLine("Package too heavy to be shipped via Package Express. Have a good day.");
             }
             else
-            {
-                //Multiplying packageWidth, packageHeight and packageLength followed by dividing that total number into the shipping cost.
-                int result = packageWidth * packageHeight * packageLength;
-                int sum = result * packageWeight / 100;
-                Console.WriteLine("Your estimated total for shipping this package is: $" + sum);
-            }
+            {    
+                //Taking inputs for package width, height and length
+                Console.WriteLine("What is the package width?");
+                int packageWidth = Convert.ToInt32(Console.ReadLine());
 
-            Console.ReadLine();
+                Console.WriteLine("what is the package height?");
+                int packageHeight = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("What is the package length?");
+                int packageLength = Convert.ToInt32(Console.ReadLine());
+
+                //Adding up total of the three dimnesions to find total and if it exceeds 50
+                int totalDimensions = packageWidth + packageHeight + packageLength;
+                if (totalDimensions > 50)
+                {
+                    Console.WriteLine("Package dimensions exceed the limit. Have a good day.");
+                }
+                else
+                {
+                    //Multiplying packageWidth, packageHeight and packageLength followed by dividing that total number into the shipping cost.
+                    int result = packageWidth * packageHeight * packageLength;
+                    int sum = result * packageWeight / 100;
+                    Console.WriteLine("Your estimated total for shipping this package is: $" + sum);
+                }
+                Console.ReadLine();
+            }
         }
     }
 }
